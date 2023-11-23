@@ -1,0 +1,35 @@
+{% extends 'webapp/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<body>
+    <div class="container bg-dark shadiw-md p-5 form-layout">
+        <h3>Create record</h3>
+        <h6>Add in the required details for your records</h6>
+        <hr>
+        <br>
+
+        <form action="" method="POST" autocomplete="">
+            {% csrf_token %}
+
+            {{form.first_name|as_crispy_field}}
+            <br>
+            {{form.last_name|as_crispy_field}}
+            <br>
+            {{form.email|as_crispy_field}}
+            <br>
+            {{form.phone|as_crispy_field}}
+            <br>
+            {{form.address|as_crispy_field}}
+
+            <br>
+            <button type="submit" class="btn btn-success w-100 btn block p-2"> Create record &nbsp; <i class="fa fa-plus-circle" aria-hidden="true"></i>
+            </button> <br>
+            <a href="{% url 'dashboard' %}" class="btn-secondary"><i class="fa fa-arrow-left" aria-hidden="true"></i> &nbsp;Go back</a>
+        </form>
+    </div>
+</body>
+    
+
+{% endblock %}
